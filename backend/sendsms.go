@@ -27,7 +27,7 @@ func (a *AfricasTalkingSender) Send(to string, message string) error {
 	//replace all possible space with a (+)
 	encodeForm := formData.Encode()
 
-	//translating the encoded form into a string.
+	//translating the encoded form into a string.because it's form
 	bodyreader := strings.NewReader(encodeForm)
 
 	//create the outbond request to their server...
