@@ -6,8 +6,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
-	"offline_ai/backend"
+	"offline_ai/backend/handlers" //import functions from handler (for handleFunc)
+	"offline_ai/backend/services" //import functions from service (sendSms)
+
+	"github.com/joho/godotenv" //.env
 )
 
 //server power house
@@ -24,7 +26,7 @@ func main() {
 	atUrl := os.Getenv("AT_URL")
 
 	//define the initial struct against what we have in our credential.
-	send := &backend.AfricasTalkingSender{
+	send := &services.AfricasTalkingSender{
 		Username: atUsername,
 		Apikey:   atApiKey,
 		Url:      atUrl,
@@ -35,7 +37,7 @@ func main() {
 
 	//the handler control panel cordinator embaded with an annonymous function
 	mux.HandleFunc("/incoming-sms", func(w http.ResponseWriter, r *http.Request) {
-		backend.HandleIncomingSms(w, r, send)
+		handlers.HandleIncomingSms(w, r, send)
 	})
 
 	fmt.Println("server started Listening on Port http://localhost:8080")
