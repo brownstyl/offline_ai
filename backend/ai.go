@@ -8,8 +8,10 @@ import (
 	"net/http"
 )
 
+// this whole pipline outlines the incoming message from users that will  be sent to our python ai model.
 func CallPythonAi(message string) (string, error) {
-	//initialize a map that will be ecoded as json reply
+
+	//initialize a map that will be encoded as json reply
 	bodyMessage := map[string]string{
 		"message": message,
 	}

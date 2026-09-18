@@ -20,6 +20,7 @@ func HandleIncomingSms(w http.ResponseWriter, r *http.Request, sender SmsSender)
 	aiReply, aiErr := CallPythonAi(message_content)
 	if aiErr != nil {
 		fmt.Printf("An error occured while process your request to  the ai, please retry %v", aiErr)
+		return
 	}
 
 	//send outgoing message/response back to the users.
