@@ -1,3 +1,3 @@
 backend/.env
 *.exe
-ai_engine/venv
+ai_engine/myenv
