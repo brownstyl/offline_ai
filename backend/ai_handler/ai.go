@@ -1,4 +1,4 @@
-package main
+package ai_handler
 
 import (
 	"bytes"

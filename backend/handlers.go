@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"offline_ai/backend/ai_handler"
 )
 
 func HandleIncomingSms(w http.ResponseWriter, r *http.Request, sender SmsSender) {
@@ -17,7 +18,7 @@ func HandleIncomingSms(w http.ResponseWriter, r *http.Request, sender SmsSender)
 	message_content := r.FormValue("text")
 
 	//calling generate function to handle us our generated text.
-	aiReply, aiErr := CallPythonAi(message_content)
+	aiReply, aiErr := ai_handler.CallPythonAi(message_content)
 	if aiErr != nil {
 		fmt.Printf("An error occured while process your request to  the ai, please retry %v", aiErr)
 		return
