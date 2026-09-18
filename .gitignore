@@ -1,0 +1,3 @@
+backend/.env
+*.exe
+ai_engine/venv
