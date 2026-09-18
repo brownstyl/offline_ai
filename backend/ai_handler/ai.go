@@ -8,7 +8,9 @@ import (
 	"net/http"
 )
 
-// this whole pipline outlines the incoming message from users that will  be sent to our python ai model.
+// this whole pipline recieves the incoming message from users that will  be sent to our python ai model.
+//and sending back a reply.
+
 func CallPythonAi(message string) (string, error) {
 
 	//initialize a map that will be encoded as json reply
